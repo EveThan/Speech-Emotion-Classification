@@ -87,3 +87,11 @@ There are other features that can be included such as spectral centroid and spec
 ## References
 - RAVDESS dataset <br>
 Livingstone SR, Russo FA (2018) The Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS): A dynamic, multimodal set of facial and vocal expressions in North American English. PLoS ONE 13(5): e0196391. https://doi.org/10.1371/journal.pone.0196391.
+- Music Feature Extraction in Python <br>
+https://towardsdatascience.com/extract-features-of-music-75a3f9bc265d
+- How to Detect COVID-19 Cough From Mel Spectrogram Using Convolutional Neural Network <br>
+https://www.analyticsvidhya.com/blog/2021/06/how-to-detect-covid19-cough-from-mel-spectrogram-using-convolutional-neural-network/
+- librosa
+https://librosa.org/doc/latest/index.html
+
+~ Project created in August 2021 ~
