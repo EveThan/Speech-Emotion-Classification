@@ -38,7 +38,51 @@ In this project, only the "Emotion" part of the file name will be considered. Th
 - The RAVDESS sound files that can be downloaded from <a href="https://www.kaggle.com/uwrfkaggler/ravdess-emotional-speech-audio" target="_blank">RAVDESS Emotional speech audio on Kaggle</a>. 
 
 ## How to use the program
-If you are running the program and storing the files locally, you would not have to connect to Google Drive like I did. Edit the code cells below the markdown "Getting the sound files" to grab the sound files from wherever you placed them. 
+If you are running the program and storing the files locally, you would not have to connect to Google Drive like I did. Edit the code cells under the markdown "Getting the sound files" to grab the sound files from wherever you placed them. 
+
+Simply run the next code cells in order to visualize the different features of a sound file. If you would like to change the sound file that you want to inspect, edit the code cell below the markdown "Analyzing one sound file".
+
+```python
+# Take one of the sound file and analyze it
+#voice_file = files[200]
+voice_file = '03-02-06-01-01-02-16.wav'
+
+voice_file
+```
+
+For example, "files[200]" is replaced with '03-02-06-01-01-02-16.wav' here. 
+
+Run the rest of the code cells in order to split the dataset into training and test sets, train a neural network on our training set, and evaluate the model on the test set. 
+
+## What I have learned
+- Used glob to return all file paths that match a specific pattern.
+- Used librosa to extract the different features of a given sound file such as its mel features and chroma features.
+- Used tensorflow.keras to create a dense neural network with batch normalization and dropout to recognize emotions in the sound files.
+- Used sklearn to evaluate the performance of the model by using the classification_report and confusion_matrix functions.
+
+## Main libraries or modules used
+- pandas
+- numpy
+- glob
+- collections
+- librosa
+- soundfile
+- Ipython.display
+- matplotlib
+- sklearn
+- tensorflow.keras
+
+## Approaches
+librosa.feature is mainly used to extract the different features of a given sound file. In this project, the mel features, chroma features, mfcc features, and number zero crossings are recorded for each sound file to be used as features for the machine learning model. 
+- The mel spectrogram is a spectrogram that is converted to a Mel scale. The Mel scale mimics how the human ear works, with research showing humans don’t perceive frequencies on a linear scale.
+- The chroma features keep track of the intensity of different pitch classes in the spectrum. In order to produce a chromagram, the data of the sound file needs to first be converted from time-amplitude to the time-frequency domain. 
+- The mfcc features or the mel frequency cepstral coefficients (MFCCs) of a signal are said to be able to concisely describe the overall shape of a spectrum.
+- The zero crossing rate is the rate at which the signal changes from positive to negative or back. This feature has been used heavily in both speech recognition and music information retrieval. It usually has higher values for highly percussive sounds like those in metal and rock.
+
+The files are split into training and test sets where 80% of them belong to the training set and the rest belong to the test set. A 7-layer dense neural network is created and trained on the training set. The last layers uses the Softmax activation function so that probabilities can be produced for each emotion and the one with the highest probability will be the emotion predicted for a given sound file. After training the model with 1500 epochs, the model is has a validation accuracy of around 60% and test accuracy of 57%.
+
+## Comments
+There are other features that can be included such as spectral centroid and spectral rolloff. However, when I included these additional features in the program, the resulting accuracy or F1 score is lower. It might be because when more features are considered, more variations are introduced into the dataset that make it harder for the model to observe a pattern and predict well. More neural network layers or different combinations of the sound features can be used to see which neural network architecture and feature combinationd can result in a model that performs better.
 
 ## References
 - RAVDESS dataset <br>
