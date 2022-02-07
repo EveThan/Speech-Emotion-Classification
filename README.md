@@ -1,4 +1,4 @@
-# Speech Emotion Classification
+# Speech Emotion Classification using ANN
 
 <br>
 An example of the plots obtained in the data preprocessing and inspection stage. This picture shows the chromagram of a sound file which shows the intensity of different pitch classes in the sound file.
